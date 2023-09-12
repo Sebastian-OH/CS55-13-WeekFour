@@ -1,0 +1,278 @@
+import Layout from '../components/layout';
+import { getAllIds, getData } from '../lib/data';
+
+// define a getStaticProps() function to have next.js retrieve data to use for the dynamic page
+// - this name is defined by next.js
+export async function getStaticProps( { params } ) {
+  const itemData = await getData(params.id);
+  return {
+    props: {
+      itemData,
+    }
+  };
+}
+
+// define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4 
+// - this name is defined by next.js
+export async function getStaticPaths() {
+  const paths = getAllIds();
+  return {
+    paths,
+    fallback: false
+  };
+}
+
+
+
+// export our dynamically routed page component Entry
+export default function Entry( { itemData } ) {
+  return (
+    <Layout>
+      <article className="card col-3">
+        <div className="card-header">
+            {itemData.name}
+            <span className="ms-5">{itemData.health}</span>
+        </div>
+        <img className="card-img-top img-fluid maxHeight" src={(`${itemData.photo}`)} alt = {(`${itemData.photoAlt}`)} />
+        <div className="card-body">
+          <h4 className="card-title">{itemData.moveOne}</h4>
+          <h4 className>{itemData.moveTwo}</h4>
+          <h6 className="card-subtitle mb-2 text-body-secondary">Weak to: {itemData.weakness}</h6>
+          <h6 className="card-subtitle mb-2 text-body-secondary">Resistant to: {itemData.resistance}</h6>
+          <a href="#" className="card-link">{itemData.email}</a>
+        </div>
+      </article>
+    </Layout>
+  );
+}
+
+
+
+
+
+
+// import Layout from '../components/layout';
+// import { datingIds, datingData} from '../lib/data';
+
+// // define a getStaticProps() function to have next.js retrieve data to use for the dynamic page
+// // - this name is defined by next.js
+// export async function getStaticProps( { params } ) {
+//   const newItemData = await datingData(params.num);
+//   return {
+//     props: {
+//       newItemData,
+//     }
+//   };
+// }
+
+// // define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4 
+// // - this name is defined by next.js
+// export async function getStaticPaths() {
+//   const paths = datingIds();
+//   return {
+//     paths,
+//     fallback: false
+//   };
+// }
+
+
+// // export our dynamically routed page component Entry
+// export default function Entry( { newItemData } ) {
+//   return (
+//     <Layout>
+//       <article className="card col-3">
+//         <div className="card-header">
+//             {newItemData.name}
+//             <span className="ms-5">{itemData.health}</span>
+//         </div>
+//         <img className="card-img-top img-fluid maxHeight" src={(`${itemData.photo}`)} alt = {(`${itemData.photoAlt}`)} />
+//         <div className="card-body">
+//           <h4 className="card-title">{itemData.moveOne}</h4>
+//           <h4 className>{itemData.moveTwo}</h4>
+//           <h6 className="card-subtitle mb-2 text-body-secondary">Weak to: {itemData.weakness}</h6>
+//           <h6 className="card-subtitle mb-2 text-body-secondary">Resistant to: {itemData.resistance}</h6>
+//           <a href="#" className="card-link">{itemData.email}</a>
+//         </div>
+//       </article>
+//     </Layout>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import Layout from '../components/layout';
+// import { getAllIds, getData, datingData } from '../lib/data';
+
+// // define a getStaticProps() function to have next.js retrieve data to use for the dynamic page
+// // - this name is defined by next.js
+// export async function getStaticProps( { params } ) {
+//   const newItemData = await datingData(params.id);
+//   const itemData = await getData(params.id);
+//   return {
+//     props: {
+//       itemData,
+//       newItemData
+//     }
+//   };
+// }
+
+// // define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4 
+// // - this name is defined by next.js
+// export async function getStaticPaths() {
+//   const paths = getAllIds();
+//   return {
+//     paths,
+//     fallback: false
+//   };
+// }
+
+
+
+
+// // export our dynamically routed page component Entry
+// export default function Entry( { itemData, newItemData } ) {
+//   return (
+//     <Layout>
+//       <article className="card col-3">
+//         <div className="card-header">
+//             {itemData.name}
+//             <span className="ms-5">{itemData.health}</span>
+//         </div>
+//         <img className="card-img-top img-fluid maxHeight" src={(`${itemData.photo}`)} alt = {(`${itemData.photoAlt}`)} />
+//         <div className="card-body">
+//           <h4 className="card-title">{itemData.moveOne}</h4>
+//           <h4 className>{itemData.moveTwo}</h4>
+//           <h6 className="card-subtitle mb-2 text-body-secondary">Weak to: {itemData.weakness}</h6>
+//           <h6 className="card-subtitle mb-2 text-body-secondary">Resistant to: {itemData.resistance}</h6>
+//           <a href="#" className="card-link">{itemData.email}</a>
+//         </div>
+//       </article>
+//     </Layout>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import Layout from '../components/layout';
+// import { getAllIds, getData, } from '../lib/data';
+
+// // define a getStaticProps() function to have next.js retrieve data to use for the dynamic page
+// // - this name is defined by next.js
+// export async function getStaticProps( { params } ) {
+//   const itemData = await getData(params.id);
+//   return {
+//     props: {
+//       itemData
+//     }
+//   };
+// }
+
+// // define a getStaticPaths() function to tell next.js all valid URLs: 1,2,3,4 
+// // - this name is defined by next.js
+// export async function getStaticPaths() {
+//   const paths = getAllIds();
+//   return {
+//     paths,
+//     fallback: false
+//   };
+// }
+
+// // export our dynamically routed page component Entry
+// export default function Entry( { itemData } ) {
+//   return (
+//     <Layout>
+//       <article className="card col-3">
+//         <div className="card-header">
+//             {itemData.name}
+//             <span className="ms-5">{itemData.health}</span>
+//         </div>
+//         <img className="card-img-top img-fluid maxHeight" src={(`${itemData.photo}`)} alt = {(`${itemData.photoAlt}`)} />
+//         <div className="card-body">
+//           <h4 className="card-title">{itemData.moveOne}</h4>
+//           <h4 className>{itemData.moveTwo}</h4>
+//           <h6 className="card-subtitle mb-2 text-body-secondary">Weak to: {itemData.weakness}</h6>
+//           <h6 className="card-subtitle mb-2 text-body-secondary">Resistant to: {itemData.resistance}</h6>
+//           <a href="#" className="card-link">{itemData.email}</a>
+//         </div>
+//       </article>
+//     </Layout>
+//   );
+// }
